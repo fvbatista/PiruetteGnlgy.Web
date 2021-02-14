@@ -1,0 +1,60 @@
+<style>
+  svg {
+    position: relative;
+  }
+
+  svg.rect{
+    position: absolute;
+  }
+
+</style>
+
+<div style="border:1px solid mediumblue;background-color: #ccc;float:left;">
+  <svg height="460" width="700" style="transform: scale(1);">
+      <path fill="none" stroke="#000"  stroke-width="2" d="m 200,120 -65,0 0,220 150,0"/>  
+      <path fill="none" stroke="#000"  stroke-width="2" d="m 430,65 -130,0 0,110 130,0"/>  
+      <path fill="none" stroke="#000"  stroke-width="2" d="m 430,285 -130,0 0,110 130,0"/>
+      <g *ngFor="let person of FAMILY; let i = index">
+        /*woman*/
+        <rect      *ngIf="person.spouse" attr.y="{{(((i + 1) * base_height) + 0 + person.top) }}"     attr.x="{{(i * base_width) + person.left}}"      fill-opacity="1" attr.height= "{{base_height}}" attr.width="{{base_width}}"  rx="0" ry="0" fill="#777"  stroke = "#ff0066"  stroke-width="4"  attr.stroke-dasharray = "{{base_width}} 1000" stroke-dashoffset ="-480" />
+        <text      *ngIf="person.spouse" attr.y="{{(((i + 1) * base_height) + 0 + person.top) }}"     attr.x="{{(i * base_width) + person.left + 8}}" stroke-width="0" stroke="#000" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" fill="white">
+            <tspan *ngIf="person.spouse" attr.y="{{(((i + 1) * base_height) + 0 + person.top) + 18}}" attr.x="{{(i * base_width) + person.left + 8}}" font-size="14" font-weight = "600" onmouseover="this.style.textDecoration='underline';this.style.cursor='pointer'" onmouseout="this.style.textDecoration='none';this.style.cursor='default'" onclick="alert('teste')">{{person.spouse}}</tspan>
+            <tspan *ngIf="person.spouse" attr.y="{{(((i + 1) * base_height) + 0 + person.top) + 31}}" attr.x="{{(i * base_width) + person.left + 8}}" font-size="11">spouse second line.</tspan>
+        </text>
+
+          /*man*/
+          <rect      *ngIf="person.name"   attr.y="{{ ((i    * base_height)     + person.top)}}"      attr.x="{{(i * base_width) + person.left }}"      fill-opacity="1" attr.height= "{{base_height}}" attr.width="{{base_width}}"  rx="0" ry="0" fill="#777"  stroke = "#0000cc"  stroke-width="4"  attr.stroke-dasharray = "{{base_width}} 1000" stroke-dashoffset ="-480  " />
+          <text      *ngIf="person.name"   attr.y="{{ ((i    * base_height)     + person.top)}}"      attr.x="{{(i * base_width) + person.left + 8}}" stroke-width="0" stroke="#000" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" fill="white">
+              <tspan *ngIf="person.name"   attr.y="{{ ((i    * base_height)     + person.top) + 18}}" attr.x="{{(i * base_width) + person.left + 8}}" font-size="14" font-weight = "600" onmouseover="this.style.textDecoration='underline';this.style.cursor='pointer'" onmouseout="this.style.textDecoration='none';this.style.cursor='default'" onclick="alert('teste')">{{person.name}}</tspan>
+              <tspan *ngIf="person.name"   attr.y="{{ ((i    * base_height)     + person.top) + 31}}" attr.x="{{(i * base_width) + person.left + 8}}" font-size="11">husband second line.</tspan>
+          </text>
+      </g>
+  </svg>
+</div>
+<div style="border:1px solid blue; float: left;padding: 10px;margin-left: 10px;">
+    <label>Code</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Name</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Info</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Sex</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Marital Status</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Spouse</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Citzenship</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Is alive</label>
+    <input type="checkbox" ><br />
+    <hr />
+    <label>Birth Certificate Reference</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Certificate Location</label><br />
+    <input type="text" style="width: 300px"><br />
+    <label>Corrections</label><br />
+    <input type="text" style="width: 300px"><br />
+    <br />
+  
+</div>
